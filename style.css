@@ -43,3 +43,17 @@ button:hover{
 background:#0056b3;
 
 }
+
+input{
+padding:8px;
+margin:3px;
+width:120px;
+}
+
+button{
+padding:10px 20px;
+background:#16a34a;
+color:white;
+border:none;
+cursor:pointer;
+}

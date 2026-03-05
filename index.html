@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<title>Dashboard Statistik Angka</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<h1>Dashboard Analisis Statistik</h1>
+
+<div class="card">
+
+<h3>Masukkan Data</h3>
+
+<input id="dataInput" placeholder="contoh: 3,5,7,3,9,1">
+
+<button onclick="analisis()">Analisis</button>
+
+<p id="hasil"></p>
+
+</div>
+
+<div class="card">
+
+<h3>Generator Angka Acak</h3>
+
+<button onclick="generate()">Generate</button>
+
+<p id="random"></p>
+
+</div>
+
+<div class="chartBox">
+<canvas id="chartFrekuensi"></canvas>
+</div>
+
+<div class="chartBox">
+<canvas id="chartTrend"></canvas>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

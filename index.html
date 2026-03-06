@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dashboard Analisis Angka</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Dashboard Analisis Angka 4 Digit</h1>
+
+<p>Masukkan 10 keluaran terakhir</p>
+
+<div class="input-grid">
+
+<input id="n1">
+<input id="n2">
+<input id="n3">
+<input id="n4">
+<input id="n5">
+<input id="n6">
+<input id="n7">
+<input id="n8">
+<input id="n9">
+<input id="n10">
+
+</div>
+
+<button onclick="analisa()">Analisa Data</button>
+
+<div class="panel">
+
+<h2>Hot Numbers</h2>
+<div id="hot"></div>
+
+<h2>Cold Numbers</h2>
+<div id="cold"></div>
+
+</div>
+
+<div class="panel">
+
+<h2>Statistik Digit</h2>
+<div id="stat"></div>
+
+</div>
+
+<div class="panel">
+
+<h2>Statistik Posisi</h2>
+<div id="posisi"></div>
+
+</div>
+
+<div class="panel">
+
+<h2>Statistik Pola</h2>
+<div id="pola"></div>
+
+</div>
+
+<div class="panel">
+
+<h2>Kandidat Kombinasi</h2>
+<div id="kombinasi"></div>
+
+</div>
+
+<canvas id="chart" width="600" height="300"></canvas>
+
+<script src="script.js"></script>
+
+</body>
+</html>

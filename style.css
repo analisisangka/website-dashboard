@@ -1,47 +1,8 @@
 body{
-
-font-family:Arial;
-background:#f4f6f9;
-text-align:center;
-
-}
-
-.card{
-
-background:white;
-padding:20px;
-margin:20px auto;
-width:300px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-
-}
-
-.chartBox{
-
-width:400px;
-margin:30px auto;
-background:white;
-padding:20px;
-border-radius:10px;
-
-}
-
-button{
-
-padding:10px;
-background:#007bff;
+font-family: Arial;
+background:#111;
 color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
-
-}
-
-button:hover{
-
-background:#0056b3;
-
+text-align:center;
 }
 
 input{
@@ -52,18 +13,9 @@ width:120px;
 
 button{
 padding:10px 20px;
-background:#16a34a;
-color:white;
+background:#00c853;
 border:none;
+color:white;
+font-weight:bold;
 cursor:pointer;
-}
-table{
-margin:auto;
-border-collapse:collapse;
-margin-top:20px;
-}
-
-td,th{
-border:1px solid #444;
-padding:10px;
 }

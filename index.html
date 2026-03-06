@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LOTTO AI ANALYZER PRO</title>
+
+<style>
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+input{
+padding:10px;
+margin:5px;
+width:120px;
+text-align:center;
+font-size:16px;
+}
+
+button{
+padding:12px 20px;
+background:#22c55e;
+border:none;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+}
+
+.hot{color:red;font-weight:bold;}
+.cold{color:#38bdf8;font-weight:bold;}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔮 LOTTO AI ANALYZER PRO</h1>
+<p>Masukkan 10 keluaran terakhir</p>
+
+<div id="inputs"></div>
+
+<button onclick="analyze()">ANALYZE AI</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+for(let i=0;i<10;i++){
+document.getElementById("inputs").innerHTML +=
+'<input class="num" placeholder="4D">';
+}
+
+function analyze(){
+
+let numbers = [];
+let inputs = document.querySelectorAll(".num");
+
+inputs.forEach(i=>{
+if(i.value.length==4) numbers.push(i.value);
+});
+
+if(numbers.length<5){
+alert("Minimal 5 data");
+return;
+}
+
+let freq = Array(10).fill(0);
+
+numbers.forEach(n=>{
+n.split('').forEach(d=>{
+freq[d]++;
+});
+});
+
+let hot=[];
+let cold=[];
+
+freq.forEach((f,i)=>{
+if(f>=3) hot.push(i);
+if(f<=1) cold.push(i);
+});
+
+let prediction=[];
+
+for(let i=0;i<5;i++){
+let num="";
+for(let j=0;j<4;j++){
+
+let pick = hot[Math.floor(Math.random()*hot.length)];
+
+if(Math.random()<0.3)
+pick = cold[Math.floor(Math.random()*cold.length)];
+
+num+=pick;
+}
+
+prediction.push(num);
+}
+
+document.getElementById("result").innerHTML=
+
+"<h2>🔥 HOT DIGITS</h2>"+hot.join(", ") +
+
+"<h2>❄️ COLD DIGITS</h2>"+cold.join(", ") +
+
+"<h2>🎯 AI PREDICTION</h2>"+prediction.join(" , ");
+
+}
+
+</script>
+
+</body>
+</html>

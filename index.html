@@ -1,19 +1,51 @@
-<h2>Prediksi dari 10 Keluaran Terakhir</h2>
+<!DOCTYPE html>
+<html lang="id">
+<head>
 
-<p>Masukkan 10 hasil terakhir (4 digit):</p>
+<meta charset="UTF-8">
+<title>Dashboard Statistik Angka</title>
 
-<input type="text" id="n1" placeholder="hasil 1"><br>
-<input type="text" id="n2" placeholder="hasil 2"><br>
-<input type="text" id="n3" placeholder="hasil 3"><br>
-<input type="text" id="n4" placeholder="hasil 4"><br>
-<input type="text" id="n5" placeholder="hasil 5"><br>
-<input type="text" id="n6" placeholder="hasil 6"><br>
-<input type="text" id="n7" placeholder="hasil 7"><br>
-<input type="text" id="n8" placeholder="hasil 8"><br>
-<input type="text" id="n9" placeholder="hasil 9"><br>
-<input type="text" id="n10" placeholder="hasil 10"><br><br>
+<link rel="stylesheet" href="style.css">
 
-<button onclick="buatPrediksi()">Buat Prediksi</button>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<h3>Hasil Analisa</h3>
-<div id="hasil"></div>
+</head>
+
+<body>
+
+<h1>Dashboard Analisis Statistik</h1>
+
+<div class="card">
+
+<h3>Masukkan Data</h3>
+
+<input id="dataInput" placeholder="contoh: 3,5,7,3,9,1">
+
+<button onclick="analisis()">Analisis</button>
+
+<p id="hasil"></p>
+
+</div>
+
+<div class="card">
+
+<h3>Generator Angka Acak</h3>
+
+<button onclick="generate()">Generate</button>
+
+<p id="random"></p>
+
+</div>
+
+<div class="chartBox">
+<canvas id="chartFrekuensi"></canvas>
+</div>
+
+<div class="chartBox">
+<canvas id="chartTrend"></canvas>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LOTTO AI ANALYZER GOD MODE</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+h1{
+color:#22c55e;
+}
+
+textarea{
+width:90%;
+height:120px;
+font-size:18px;
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+background:#22c55e;
+border:none;
+cursor:pointer;
+margin:10px;
+}
+
+.result{
+background:#1e293b;
+padding:20px;
+margin-top:20px;
+border-radius:10px;
+}
+
+.hot{color:#ef4444;}
+.cold{color:#3b82f6;}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>LOTTO AI ANALYZER GOD MODE</h1>
+
+<p>Masukkan hasil keluaran terakhir (pisahkan dengan koma)</p>
+
+<textarea id="dataInput"></textarea>
+
+<br>
+
+<button onclick="analyze()">ANALYZE GOD MODE</button>
+
+<div class="result" id="result"></div>
+
+<script>
+
+function analyze(){
+
+let raw=document.getElementById("dataInput").value;
+let data=raw.split(",");
+
+let freq={};
+
+for(let i=0;i<10000;i++){
+let num=i.toString().padStart(4,'0');
+freq[num]=0;
+}
+
+data.forEach(n=>{
+n=n.trim();
+if(freq[n]!=undefined){
+freq[n]++;
+}
+});
+
+let sorted=Object.entries(freq).sort((a,b)=>b[1]-a[1]);
+
+let hot=sorted.slice(0,10);
+let cold=sorted.slice(-10);
+
+let digits=[0,0,0,0,0,0,0,0,0,0];
+
+data.forEach(n=>{
+n=n.trim();
+for(let i of n){
+digits[i]++;
+}
+});
+
+let digitSorted=[...digits].map((v,i)=>({d:i,v:v}))
+.sort((a,b)=>b.v-a.v);
+
+let strongDigits=digitSorted.slice(0,4).map(x=>x.d);
+
+let predictions=[];
+
+for(let i=0;i<20;i++){
+
+let num='';
+
+for(let j=0;j<4;j++){
+
+if(Math.random()>0.5){
+num+=strongDigits[Math.floor(Math.random()*strongDigits.length)];
+}else{
+num+=Math.floor(Math.random()*10);
+}
+
+}
+
+predictions.push(num);
+}
+
+let html="";
+
+html+="<h2>🔥 HOT NUMBERS</h2>";
+
+hot.forEach(x=>{
+html+="<div class='hot'>"+x[0]+"</div>";
+});
+
+html+="<h2>❄️ COLD NUMBERS</h2>";
+
+cold.forEach(x=>{
+html+="<div class='cold'>"+x[0]+"</div>";
+});
+
+html+="<h2>AI DIGIT POWER</h2>";
+
+digitSorted.forEach(x=>{
+html+="Digit "+x.d+" : "+x.v+"<br>";
+});
+
+html+="<h2>AI PREDICTIONS</h2>";
+
+predictions.forEach(p=>{
+html+="<div>"+p+"</div>";
+});
+
+document.getElementById("result").innerHTML=html;
+
+}
+
+</script>
+
+</body>
+</html>

@@ -133,3 +133,35 @@ document.getElementById("prediksi").innerHTML =
 "<br>Prediksi:<br>"+prediksi.join("<br>");
 
 }
+fetch("data.json")
+.then(res=>res.json())
+.then(data=>{
+
+let tabel = document.getElementById("tabelData")
+
+let hitung = {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0}
+
+data.forEach(item=>{
+
+let row = tabel.insertRow()
+
+row.insertCell(0).innerHTML = item.tanggal
+row.insertCell(1).innerHTML = item.hasil
+
+item.hasil.split("").forEach(d=>{
+hitung[d]++
+})
+
+})
+
+let hasil=""
+
+for(let i=0;i<=9;i++){
+
+hasil += "Digit "+i+" : "+hitung[i]+" kali <br>"
+
+}
+
+document.getElementById("statistik").innerHTML = hasil
+
+})
